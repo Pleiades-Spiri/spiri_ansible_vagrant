@@ -4,22 +4,22 @@
   become: yes
   roles:
     - { role: vagrant_configure, tags: ['setup'] }
-    - { role: firewalld, tags: ['firewalld'] }
-    - { role: repository_epel, tags: ['yum'] }
-    - { role: repository_ius, tags: ['yum'] }
-    - { role: yum_packages, tags: ['yum'] }
-    - { role: python27, tags: ['python'] }
-    - { role: python36, tags: ['python'] }
-    - { role: httpd, tags: ['httpd'] }
-    - { role: httpd_mod_wsgi, tags: ['python', 'httpd'] }
-    - { role: freetds, tags: ['sql', 'sql server', 'freetds'] }
-    - { role: mssql, tags: ['sql', 'sql server', 'msodbc'] }
-    - { role: elastic_search, tags: ['search', 'elastic'] }
-    - { role: redis, tags: ['cache', 'redis'] }
-    - { role: postgresql, tags: ['postgresql']}
-    - { role: postgresql_vagrant, tags: ['postgresql']}
-    - { role: nodejs, tags: ['nodejs', 'npm']}
+    # - { role: firewalld, tags: ['firewalld'] }
+    # - { role: repository_epel, tags: ['yum'] }
+    # - { role: repository_ius, tags: ['yum'] }
+    # - { role: yum_packages, tags: ['yum'] }
+    # - { role: python27, tags: ['python'] }
+    # - { role: python36, tags: ['python'] }
+    # - { role: httpd, tags: ['httpd'] }
+    # - { role: httpd_mod_wsgi, tags: ['python', 'httpd'] }
+    # - { role: freetds, tags: ['sql', 'sql server', 'freetds'] }
+    # - { role: mssql, tags: ['sql', 'sql server', 'msodbc'] }
+    # - { role: elastic_search, tags: ['search', 'elastic'] }
+    # - { role: redis, tags: ['cache', 'redis'] }
+    # - { role: postgresql, tags: ['postgresql']}
+    # - { role: postgresql_vagrant, tags: ['postgresql']}
+    # - { role: nodejs, tags: ['nodejs', 'npm']}
 
     # The following line will perform a yum update.
     # This would take a while!
-    # - { role: yum_update, tags: ['yum'] }
+    # # - { role: yum_update, tags: ['yum'] }

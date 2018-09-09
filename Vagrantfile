@@ -1,7 +1,13 @@
 Vagrant.configure("2") do |config|
+  config.vm.box = "pstizzy/ubuntu-xenial64-ros-kinetic-desktop-full"
+  config.vm.box_version = "0.0.1"
+end
+
+
+Vagrant.configure("2") do |config|
     vm_name = 'default'
-    config.vm.box = "bento/centos-7.5"
-    config.vm.box_version = "201805.15.0"
+    config.vm.box = "pstizzy/ubuntu-xenial64-ros-kinetic-desktop-full"
+    config.vm.box_version = "0.0.1"
     config.vm.synced_folder ".", "/vagrant", id: "vagrant-root", :mount_options => ["dmode=777","fmode=777"]
 
     config.vm.provider "virtualbox" do |v|
@@ -15,37 +21,27 @@ Vagrant.configure("2") do |config|
     end
 
     # Set up a private IP that can be added to the host machine's hosts file
-    config.vm.network "private_network", ip: "192.168.99.100"
+    config.vm.network "private_network", ip: "192.168.99.99"
 
     # Ports to forward from the guest VM to the host
-    # Uncomment the line below for Apache on port 80
-  	# config.vm.network "forwarded_port", guest: 80, host: 80, auto_correct: false
   	config.vm.network "forwarded_port", guest: 5432, host: 5432, auto_correct: false
-  	config.vm.network "forwarded_port", guest: 8000, host: 8000, auto_correct: false
-  	config.vm.network "forwarded_port", guest: 8080, host: 8080, auto_correct: false
-  	config.vm.network "forwarded_port", guest: 8100, host: 8100, auto_correct: false
 
     vagrant_arg = ARGV[0]
 
     if ENV['VAGRANT_HOSTNAME'].nil? and Dir.glob("#{File.dirname(__FILE__)}/.vagrant/machines/#{vm_name}/virtualbox/id").empty? and vagrant_arg == 'up'
-        print "A hostname has not been provided. Please create one, or hit enter for the default.\n"
-        print "Enter your hostname [vagrant.example.com]: "
+        print "A hostname for virtual Spiri has not been provided. Please create one, or hit enter for the default.\n"
+        print "Enter your hostname [vagrant.spiri.com]: "
         config.vm.hostname = STDIN.gets.chomp
-        # If no input, sync the default ./html directory to /vagrant/html in guest
+        # If no input, use vagrant.spiri.com as the hostname
         if config.vm.hostname == ''
-            config.vm.hostname = "vagrant.example.com"
+            config.vm.hostname = "vagrant.spiri.com"
         end
     else
         config.vm.hostname = ENV['VAGRANT_HOSTNAME']
     end
 
-    # ENV['VAGRANT_HOSTNAME'] = "vagrant.example.com" if ENV['VAGRANT_HOSTNAME'].nil?
-    # config.vm.hostname = ENV['VAGRANT_HOSTNAME']
-
     config.vm.provision "ansible_local" do |ansible|
         ansible.playbook = "vagrant_playbook.yml"
-        # ansible.compatibility_mode = "2.0"
-        # ansible.verbose = "v"
     end
 end
 
