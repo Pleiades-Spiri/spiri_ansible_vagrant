@@ -42,7 +42,7 @@ $ sudo dnf install VirtualBox
 * The Vagrant plugin `vagrant-vbguest` will cause problems with the shared folder in most cases. Please uninstall the plugin first if you have it installed with `vagrant plugin uninstall vagrant-vbguest`.
 
 ```bash
-git clone https://github.com/Pleiades-Spiri/spiri-ansible-vagrant.git
+git clone --recursive https://github.com/Pleiades-Spiri/spiri-ansible-vagrant.git
 cd spiri-ansible-vagrant
 vagrant up
 vagrant ssh
