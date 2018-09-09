@@ -17,6 +17,8 @@ Vagrant.configure("2") do |config|
         v.customize ["modifyvm", :id, "--vram", "12"]
         v.customize ["modifyvm", :id, "--ioapic", "on"]
         v.customize ["modifyvm", :id, "--audio", "none"]
+        v.customize ["modifyvm", :id, "--usb", "on"]
+        v.customize ["modifyvm", :id, "--usbehci", "off"]
         v.name = "spiri-vagrant-ros"
     end
 
