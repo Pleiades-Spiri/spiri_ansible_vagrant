@@ -82,3 +82,35 @@ You may also want to add/remove users soon.
 Maintainer:
 
 * Tim Allen (https://github.com/FlipperPA)
+
+# Configure Git
+If you do not already have a username and log-in to Git, set one up.
+https://www.github.com
+
+Report your username to Tim or Patrick to give you access rights. You will need to configure settings to your account at GitHub as well as configure your laptop.
+
+Create a token following the steps in this link:
+https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+
+Save the token somewhere. You will need to type/paste it in to the password prompt when you interact with GitHub from the command line of your laptop.
+
+For reference, Pleiades' Spiri related GitHub location is here: https://github.com/Pleiades-Spiri
+
+Once you have access rights, you will be able to see our repositories.
+
+## Mac
+Follow the steps below to create a new SSH key. Public key cryptography is a way to safeguard web communications.
+https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+NOTES
+* In Step 2 of Generating a New SSH Key, your email address at GitHub is the email address you used to create the account. Probably your @pleiadesrobotics.com email.
+* In Step 2 of Adding your Key to the SSH Agent, there is a mistake. You need an additional line for Mac:
+
+Host *
+ IgnoreUnknown AddKeysToAgent,UseKeychain
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/id_rsa
+
+Now follow these steps to add your SSH key to your GitHub account.
+https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
