@@ -106,11 +106,13 @@ NOTES
 * In Step 2 of Generating a New SSH Key, your email address at GitHub is the email address you used to create the account. Probably your @pleiadesrobotics.com email.
 * In Step 2 of Adding your Key to the SSH Agent, there is a mistake. You need an additional line for Mac:
 
+```
 Host *
  IgnoreUnknown AddKeysToAgent,UseKeychain
  AddKeysToAgent yes
  UseKeychain yes
  IdentityFile ~/.ssh/id_rsa
+```
 
 Now follow these steps to add your SSH key to your GitHub account.
 https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
