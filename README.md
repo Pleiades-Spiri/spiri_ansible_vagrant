@@ -37,9 +37,7 @@ $ sudo dnf install VirtualBox
 
 ## Get Started
 
-* Create and add a public SSH key to your git server (GitHub, GitLab, etc).
-* Clone the repository and bring up the virtual development environment. The first time you install the box, "vagrant up" will take a little while. Grab a cup of coffee or something!
-* The Vagrant plugin `vagrant-vbguest` will cause problems with the shared folder in most cases. Please uninstall the plugin first if you have it installed with `vagrant plugin uninstall vagrant-vbguest`.
+* Clone the repository and bring up the virtual development environment. The first time you install the box, "vagrant up" will take a little while. Grab a cup of coffee or something:
 
 ```bash
 git clone --recursive https://github.com/Pleiades-Spiri/spiri-ansible-vagrant.git
@@ -47,6 +45,8 @@ cd spiri-ansible-vagrant
 vagrant up
 vagrant ssh
 ```
+
+* The Vagrant plugin `vagrant-vbguest` will cause problems with the shared folder in most cases. Please uninstall the plugin first if you have it installed with `vagrant plugin uninstall vagrant-vbguest`.
 
 * You can also add the host name to your computer's `hosts` file. Your `hosts` file should be located at:
 
