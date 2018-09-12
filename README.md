@@ -43,6 +43,8 @@ $ sudo dnf install VirtualBox
 git clone --recursive https://github.com/Pleiades-Spiri/spiri-ansible-vagrant.git
 cd spiri-ansible-vagrant
 vagrant up
+git pull origin master
+vagrant provision
 vagrant ssh
 ```
 
