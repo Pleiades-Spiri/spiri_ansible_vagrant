@@ -6,6 +6,8 @@ end
 
 Vagrant.configure("2") do |config|
     vm_name = 'default'
+    config.ssh.forward_agent = true
+    config.ssh.forward_x11 = true
     config.vm.box = "pstizzy/ubuntu-xenial64-ros-kinetic-desktop-full"
     config.vm.box_version = "0.0.1"
     config.vm.synced_folder ".", "/vagrant", id: "vagrant-root", :mount_options => ["dmode=777","fmode=777"]
