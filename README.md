@@ -81,6 +81,11 @@ $ ssh vagrant@vagrant.my.domain.com -p 2222
 At this point, you should change the default password for the vagrant user.
 You may also want to add/remove users soon.
 
+In order to forward x-packets, also install xauth in your vagrant instance:
+```
+$ sudo apt-get install xauth
+```
+
 Maintainer:
 
 * Tim Allen (https://github.com/FlipperPA)
